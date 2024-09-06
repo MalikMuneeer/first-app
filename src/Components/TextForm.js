@@ -14,45 +14,89 @@ export default function TextForm(props) {
     let newText = text.toLowerCase();
     setTextt(newText);
   };
+  const handleClearText = () => {
+    let newText = "";
+    setTextt(newText);
+  };
+  const handleInverseCase = () => {
+    let newText = text
+      .split("")
+      .map((char) => {
+        if (char === char.toLowerCase()) {
+          return char.toUpperCase();
+        } else {
+          return char.toLowerCase();
+        }
+      })
+      .join("");
+    setTextt(newText);
+  };
 
-  const [text, setTextt] = useState("Enter you text");
+  const [text, setTextt] = useState("");
   return (
-    <div>
-      <div className="mb-3">
-        <h1>{props.Header}</h1>
+    <>
+      <div className="container">
+        <div className="mb-3">
+          <h1>{props.Header}</h1>
 
-        <textarea
-          htmlFor="mytext"
-          value={text}
-          onChange={handleOnChange}
-          className="form-control"
-          id="mytext"
-          rows="15"
-        ></textarea>
-      </div>
-      <div
-        className="btn-group"
-        role="group"
-        aria-label="Basic outlined example"
-      >
-        <button
-          type="button"
-          className="btn btn-outline-primary"
-          onClick={handleUpClick}
+          <textarea
+            htmlFor="mytext"
+            value={text}
+            onChange={handleOnChange}
+            className="form-control"
+            id="mytext"
+            rows="8"
+          ></textarea>
+        </div>
+        <div
+          className="btn-group"
+          role="group"
+          aria-label="Basic outlined example"
         >
-          Convert to Uppercase
-        </button>
-        <button
-          type="button"
-          className="btn btn-outline-primary"
-          onClick={handleLowClick}
-        >
-          Convert to lowercase
-        </button>
-        <button type="button" className="btn btn-outline-primary">
-          Right
-        </button>
+          <button
+            type="button"
+            className="btn btn-outline-primary"
+            onClick={handleUpClick}
+          >
+            Convert to Uppercase
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-primary"
+            onClick={handleLowClick}
+          >
+            Convert to lowercase
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-primary"
+            onClick={handleClearText}
+          >
+            Clear Text
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-primary"
+            onClick={handleInverseCase}
+          >
+            Inverse Case
+          </button>
+        </div>
       </div>
-    </div>
+      <div className="container my-2">
+        <h2>Your text Summery</h2>
+        <p>
+          <b>
+            {" "}
+            {text.split(" ").length} Words And {text.length} Characters
+          </b>
+        </p>
+        <p>
+          <b>{0.008 * text.split(" ").length}Minutes Read</b>
+        </p>
+        <h2>Preview</h2>
+        <p>{text}</p>
+      </div>
+    </>
   );
 }
