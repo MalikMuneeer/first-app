@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export default function Navbar({
   title = "Set your Navbar title",
@@ -10,35 +11,35 @@ export default function Navbar({
     <div>
       <nav className={`navbar navbar-expand-lg bg-body-${mode} bg-${mode}`}>
         <div className="container-fluid">
-          <a
+          <Link
             className={`navbar-brand ${
               mode === "dark" ? "text-white" : "text-dark"
             }`}
-            href="/"
+            to="/"
           >
             {title}
-          </a>
+          </Link>
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a
+              <Link
                 className={`nav-link ${
                   mode === "dark" ? "text-white" : "text-dark"
                 }`}
                 aria-current="page"
-                href="/"
+                to="/"
               >
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a
+              <Link
                 className={`nav-link ${
                   mode === "dark" ? "text-white" : "text-dark"
                 }`}
-                href="/"
+                to="/about"
               >
                 About
-              </a>
+              </Link>
             </li>
           </ul>
 

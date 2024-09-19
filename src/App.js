@@ -1,13 +1,13 @@
-import { useState } from "react";
-import "./App.css";
-// import About from "./Components/About";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import TextForm from "./Components/TextForm";
+import About from "./Components/About";
 import Alert from "./Components/Alert";
 
 function App() {
-  const [Mode, setMode] = useState("light"); // whether dark mode is enabled or not
-  const [alert, setAlert] = useState(null);
+  const [Mode, setMode] = React.useState("light");
+  const [alert, setAlert] = React.useState(null);
 
   const showAlert = (message, type) => {
     setAlert({
@@ -16,7 +16,7 @@ function App() {
     });
     setTimeout(() => {
       setAlert(null);
-    }, 1000);
+    }, 3000);
   };
 
   const toggleMode = () => {
@@ -32,18 +32,28 @@ function App() {
   };
 
   return (
-    <>
+    <Router>
       <Navbar title="TextUtils" mode={Mode} toggleMode={toggleMode} />
       <Alert alert={alert} />
       <div className="container my-3">
-        <TextForm
-          showAlert={showAlert}
-          Header="Enter the text to analyze"
-          mode={Mode}
-        />
-        {/* <About /> */}
+        {/* Routes define different paths */}
+        <Routes>
+          {/* Define route for home, About, and TextForm */}
+          <Route
+            exact
+            path="/"
+            element={
+              <TextForm
+                showAlert={showAlert}
+                Header="Enter text to analyze"
+                mode={Mode}
+              />
+            }
+          />
+          <Route exact path="/about" element={<About />} />
+        </Routes>
       </div>
-    </>
+    </Router>
   );
 }
 
