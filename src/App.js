@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import TextForm from "./Components/TextForm";
-import About from "./Components/About";
+// import About from "./Components/About";
 import Alert from "./Components/Alert";
 
 function App() {
@@ -38,7 +38,7 @@ function App() {
       <div className="container my-3">
         {/* Routes define different paths */}
         <Routes>
-          {/* Define route for home, About, and TextForm */}
+          {/* Define route for home and TextForm */}
           <Route
             exact
             path="/"
@@ -50,7 +50,8 @@ function App() {
               />
             }
           />
-          <Route exact path="/about" element={<About />} />
+          {/* Uncomment the route for About when you're ready */}
+          {/* <Route exact path="/about" element={<About />} /> */}
         </Routes>
       </div>
     </Router>

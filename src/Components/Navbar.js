@@ -11,36 +11,36 @@ export default function Navbar({
     <div>
       <nav className={`navbar navbar-expand-lg bg-body-${mode} bg-${mode}`}>
         <div className="container-fluid">
-          <Link
+          <a
             className={`navbar-brand ${
               mode === "dark" ? "text-white" : "text-dark"
             }`}
-            to="/"
+            href="#"
           >
             {title}
-          </Link>
+          </a>
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <Link
+              <a
                 className={`nav-link ${
                   mode === "dark" ? "text-white" : "text-dark"
                 }`}
                 aria-current="page"
-                to="/"
+                href="#"
               >
                 Home
-              </Link>
+              </a>
             </li>
-            <li className="nav-item">
-              <Link
+            {/* <li className="nav-item">
+              <a
                 className={`nav-link ${
                   mode === "dark" ? "text-white" : "text-dark"
                 }`}
-                to="/about"
+                href="#"
               >
                 About
-              </Link>
-            </li>
+              </a>
+            </li> */}
           </ul>
 
           {/* Dark Mode Toggle */}
