@@ -50,15 +50,18 @@ export default function TextForm({ Header, mode, showAlert }) {
 
   // Conditional styles based on mode
   const textAreaStyle = {
-    backgroundColor: mode === "dark" ? "#333" : "white",
+    backgroundColor: mode === "dark" ? "#063f94" : "white",
     color: mode === "dark" ? "white" : "black",
   };
+
+  const buttonClass =
+    mode === "dark" ? "btn-outline-light" : "btn-outline-primary";
 
   return (
     <>
       <div className="container">
         <div className={`mb-3 ${mode === "dark" ? "text-white" : "text-dark"}`}>
-          <h1>{Header}</h1>
+          <h1 className="mb-4">{Header}</h1>
           <textarea
             style={textAreaStyle}
             value={text}
@@ -69,53 +72,69 @@ export default function TextForm({ Header, mode, showAlert }) {
           ></textarea>
         </div>
 
-        <div
-          className="btn-group"
-          role="group"
-          aria-label="Basic outlined example"
-        >
-          <button
-            type="button"
-            className="btn btn-outline-primary"
-            onClick={handleUpClick}
-          >
-            Convert to Uppercase
-          </button>
-          <button
-            type="button"
-            className="btn btn-outline-primary"
-            onClick={handleLowClick}
-          >
-            Convert to Lowercase
-          </button>
-          <button
-            type="button"
-            className="btn btn-outline-primary"
-            onClick={handleClearText}
-          >
-            Clear Text
-          </button>
-          <button
-            type="button"
-            className="btn btn-outline-primary"
-            onClick={handleCopy}
-          >
-            Copy Text
-          </button>
-          <button
-            type="button"
-            className="btn btn-outline-primary"
-            onClick={handleExtraSpaces}
-          >
-            Remove Extra Spaces
-          </button>
-          <button
-            type="button"
-            className="btn btn-outline-primary"
-            onClick={handleInverseCase}
-          >
-            Inverse Case
-          </button>
+        <div className="container my-3">
+          <div className="row">
+            <div className="col-12 col-md-4 mb-2">
+              <button
+                disabled={text.length === 0}
+                type="button"
+                className={`btn w-100 ${buttonClass}`}
+                onClick={handleUpClick}
+              >
+                Convert to Uppercase
+              </button>
+            </div>
+            <div className="col-12 col-md-4 mb-2">
+              <button
+                type="button"
+                className={`btn w-100 ${buttonClass}`}
+                disabled={text.length === 0}
+                onClick={handleLowClick}
+              >
+                Convert to Lowercase
+              </button>
+            </div>
+            <div className="col-12 col-md-4 mb-2">
+              <button
+                type="button"
+                className={`btn w-100 ${buttonClass}`}
+                disabled={text.length === 0}
+                onClick={handleClearText}
+              >
+                Clear Text
+              </button>
+            </div>
+            <div className="col-12 col-md-4 mb-2">
+              <button
+                type="button"
+                className={`btn w-100 ${buttonClass}`}
+                disabled={text.length === 0}
+                onClick={handleCopy}
+              >
+                Copy Text
+              </button>
+            </div>
+            <div className="col-12 col-md-4 mb-2">
+              <button
+                type="button"
+                className={`btn w-100 ${buttonClass}`}
+                disabled={text.length === 0}
+                onClick={handleExtraSpaces}
+              >
+                Remove Extra Spaces
+              </button>
+            </div>
+            <div className="col-12 col-md-4 mb-2">
+              <button
+                type="button"
+                className={`btn w-100 ${buttonClass}`}
+                disabled={text.length === 0}
+                onClick={handleInverseCase}
+              >
+                Inverse Case
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 

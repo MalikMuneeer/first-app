@@ -4,7 +4,7 @@ export default function About({ mode }) {
   return (
     <div
       className={`container my-3  ${
-        mode === "dark" ? "bg-light text-dark" : "bg-dark text-white"
+        mode === "dark" ? " text-white" : "text-dark "
       }`}
     >
       <h2>About TextUtils</h2>
