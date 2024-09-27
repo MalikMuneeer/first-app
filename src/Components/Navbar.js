@@ -17,7 +17,7 @@ export default function Navbar({
             className={`navbar-brand ${
               mode === "dark" ? "text-white" : "text-dark"
             }`}
-            to="/"
+            to=""
           >
             {title}
           </Link>
