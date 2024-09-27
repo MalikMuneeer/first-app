@@ -32,7 +32,7 @@ function App() {
   };
 
   return (
-    <Router>
+    <Router basename="/first-app">
       <Navbar title="TextUtils" mode={Mode} toggleMode={toggleMode} />
       <Alert alert={alert} />
       <div className="container my-3">
@@ -43,7 +43,7 @@ function App() {
             element={
               <TextForm
                 showAlert={showAlert}
-                Header="Try TextUtils-Word Counter,Character Counter,Remove extra spaces"
+                Header="Try TextUtils-Word Counter, Character Counter, Remove extra spaces"
                 mode={Mode}
               />
             }

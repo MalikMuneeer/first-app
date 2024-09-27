@@ -9,7 +9,6 @@ export default function Navbar({
 }) {
   return (
     <div>
-      {/* Change navbar-expand-lg to navbar-expand-md */}
       <nav className={`navbar navbar-expand-md bg-body-${mode} bg-${mode}`}>
         <div className="container-fluid">
           {/* Navbar Brand */}
@@ -17,7 +16,7 @@ export default function Navbar({
             className={`navbar-brand ${
               mode === "dark" ? "text-white" : "text-dark"
             }`}
-            to=""
+            to="/"
           >
             {title}
           </Link>
